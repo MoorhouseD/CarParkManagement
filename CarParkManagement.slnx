@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CarParkManagement.Test/CarParkManagement.Test.csproj" />
+  <Project Path="CarParkManagement/CarParkManagement.csproj" />
+</Solution>

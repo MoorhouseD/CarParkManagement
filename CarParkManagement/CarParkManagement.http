@@ -1,0 +1,25 @@
+@CarParkManagement_HostAddress = http://localhost:5027
+
+GET {{CarParkManagement_HostAddress}}/parking/
+Accept: application/json
+
+###
+
+POST {{CarParkManagement_HostAddress}}/parking/
+Content-Type: application/json
+
+{
+    "VehicleReg": "NU22 1VE",
+    "VehicleType", "3"
+}
+
+###
+
+POST {{CarParkManagement_HostAddress}}/parking/exit
+Content-Type: application/json
+
+{
+  VehicleReg: "NU22 1VE"
+}
+
+###
