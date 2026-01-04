@@ -26,5 +26,9 @@ RUN dotnet publish "./CarParkManagement.csproj" -c $BUILD_CONFIGURATION -o /app/
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
+# Ensure the container runs in Development environment by default
+ENV ASPNETCORE_ENVIRONMENT=Development
+# Expose the app on port 8080 by default
+ENV ASPNETCORE_URLS="http://+:8080"
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CarParkManagement.dll"]
