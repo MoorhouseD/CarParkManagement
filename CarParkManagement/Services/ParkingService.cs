@@ -36,7 +36,11 @@ public class ParkingService : IParkingService
     public async Task<ParkVehicleResponse> ParkVehicle(string vehicleReg, VehicleType vehicleType)
     {
         // Create vehicle
-        var vehicle = new Vehicle(vehicleReg, vehicleType);
+        var vehicle = new Vehicle
+        {
+            VehicleReg = vehicleReg,
+            VehicleType = vehicleType
+        };
 
         //Optional store vehicle for future use
 
