@@ -1,4 +1,6 @@
+using CarParkManagement.Data;
 using CarParkManagement.Services;
+using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using System.Text.Json.Serialization;
 
@@ -11,6 +13,11 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<ParkingSpaceDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 // Add services to the container
 builder.Services.AddSingleton<IParkingChargeService, ParkingChargeService>();
